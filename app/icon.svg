@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14314A"/>
+      <stop offset="55%" stop-color="#2E6678"/>
+      <stop offset="100%" stop-color="#4FA1AD"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="#0F1117"/>
+  <text x="16" y="23" text-anchor="middle"
+        font-family="IBM Plex Sans, system-ui, sans-serif"
+        font-weight="700" font-size="22" letter-spacing="-1"
+        fill="url(#g)">B</text>
+  <rect x="6" y="10" width="9" height="1.6" fill="#0F1117"/>
+  <rect x="6" y="13" width="9" height="1.6" fill="#0F1117"/>
+  <rect x="6" y="16" width="9" height="1.6" fill="#0F1117"/>
+</svg>

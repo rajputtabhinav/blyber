@@ -1,0 +1,34 @@
+# Local development Postgres for Blyber.
+#
+# Run:    docker compose up -d
+# Stop:   docker compose down
+# Reset:  docker compose down -v   (also wipes the volume)
+#
+# The DATABASE_URL in .env.local must point at this:
+#   DATABASE_URL=postgres://blyber:blyber@localhost:5433/blyber
+#
+# Port 5433 (not 5432) so it doesn't collide with any Postgres you
+# already have running locally.
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: blyber-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: blyber
+      POSTGRES_PASSWORD: blyber
+      POSTGRES_DB: blyber
+    ports:
+      - "5433:5432"
+    volumes:
+      - blyber_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U blyber -d blyber"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  blyber_pgdata:
+    name: blyber_pgdata
